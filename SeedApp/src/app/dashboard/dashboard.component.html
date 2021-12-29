@@ -1,0 +1,84 @@
+<div class="seq-header m-lg-5 m-md-5 m-sm-3 m-xs-1 text-center">
+  <h1 class="display-3 pricing">HOME</h1>
+</div>
+
+<div class="row justify-content-center px-lg-5 px-sm-1 mx-0">
+    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 my-3 mx-1">
+      <table class="table table-dark table-bordered table-striped table-hover">
+        <thead>
+          <tr>
+            <th scope="col" class="bg-info">DEPARTMENT</th>
+            <th scope="col" class="bg-info">ID</th>
+            <th scope="col" class="bg-info">NAME</th>
+            <th scope="col" class="bg-info">BUILDING</th>
+            <th scope="col" class="bg-info">EMPLOYEES</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let department of departments; index as i">
+            <th scope="row" class="bg-danger">{{ i + 1 }}</th>
+            <td routerLink="/ddetail/{{department.id}}">
+              <a routerLink="/ddetail/{{department.id}}">
+              {{department.id}}
+              </a>
+            </td>
+            <td routerLink="/ddetail/{{department.id}}">
+              <a routerLink="/ddetail/{{department.id}}">
+              {{department.name}}
+              </a>
+            </td>
+            <td routerLink="/ddetail/{{department.id}}">
+              <a routerLink="/ddetail/{{department.id}}">
+              {{department.building}}
+              </a>
+            </td>
+            <td routerLink="/ddetail/{{department.id}}">
+              <a routerLink="/ddetail/{{department.id}}">
+              {{department.employees}}
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12 my-3 mx-1">
+      <table class="table table-dark table-bordered table-striped table-hover">
+        <thead>
+          <tr>
+            <th scope="col" class="bg-info">EMPLOYEE</th>
+            <th scope="col" class="bg-info">ID</th>
+            <th scope="col" class="bg-info">DEP ID</th>
+            <th scope="col" class="bg-info">FIRST NAME</th>
+            <th scope="col" class="bg-info">LAST NAME</th>
+            <th scope="col" class="bg-info">BIRTH DATE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let employee of employees; index as i">
+            <th scope="row" class="bg-danger">{{ i + 1 }}</th>
+            <td routerLink="/detail/{{employee.id}}">
+              <a routerLink="/detail/{{employee.id}}">
+              {{employee.id}}
+              </a>
+            </td>
+            <td>
+                {{employee.department_id}}
+            </td>
+            <td routerLink="/detail/{{employee.id}}">
+              <a routerLink="/detail/{{employee.id}}">
+                {{employee.first_name}}
+              </a>
+            </td>
+            <td routerLink="/detail/{{employee.id}}">
+              <a routerLink="/detail/{{employee.id}}">
+                {{employee.last_name}}
+              </a>
+            </td>
+            <td>
+              {{employee.birth_date}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>

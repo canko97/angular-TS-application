@@ -1,0 +1,42 @@
+
+
+<div *ngIf = "department">
+    <h2 class="inf-dep text-center my-3 mb-4">
+        {{department.name | uppercase}} Details
+    </h2>    
+    <div class="row justify-content-center px-lg-5 px-sm-1 mx-0">
+        <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6 my-3 ml-5">
+            <form class="det-form">
+                <div>
+                    <span>ID: </span>{{department.id}}
+                </div>
+                <div>
+                    <label>NAME:
+                        <input [(ngModel)]="department.name" type="text" name="name" class="form-control my-1" placeholder="NAME">
+                    </label>
+                </div>
+
+                <div>
+                    <label>BUILDING:
+                        <input [(ngModel)]="department.building" type="text" name="description" class="form-control my-1" placeholder="BUILDING">
+                    </label>
+                </div>
+            </form>
+                
+            <div>
+                <ul class="list-group mr-5 pr-5 mb-3">
+                    <li class="list-group-item list-group-item-secondary">EMPLOYEES OF DEPARTMENT</li>
+                    <li class="list-group-item list-group-item-light" *ngFor="let employee of getEmployeesOfDepartment()"><span>ID:</span>{{employee.id}} <span>Name:</span>{{employee.first_name}}</li>
+                </ul>
+
+                <ul class="list-group mr-5 pr-5 mb-3">
+                    <li class="list-group-item list-group-item-secondary">EMPLOYEES IN BUILDING {{department.building}}</li>
+                    <li class="list-group-item list-group-item-secondary"><button (click)="getBuildingDepartments()" type="button" class="btn btn-outline-secondary btn-block my-1">SHOW ALL EMPLOYEES OF BUILDING</button></li>
+                    <li class="list-group-item list-group-item-light" *ngFor="let employee of getEmployeesOfBuilding()"><span>ID:</span>{{employee.id}} <span>Name:</span>{{employee.first_name}}</li>
+                </ul>
+            </div>
+            <button (click)="save()" type="button" class="btn btn-outline-secondary btn-block my-1">SAVE</button>
+            <button (click)="goBack()" type="button" class="btn btn-outline-secondary btn-block my-1">BACK</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+<div id="search-component">  
+    <input #searchBoxEmp id="search-box-emp" type="text" (input)="search(searchBoxEmp.value)" placeholder="Employee Search"/>
+  
+    <ul class="search-result">
+      <li *ngFor="let employee of employees$ | async" >
+        <a routerLink="http://i875395.hera.fhict.nl/api/3616908/employee?id={{employee.id}}">
+          {{employee.first_name}}
+        </a>
+      </li>
+    </ul>
+  </div>

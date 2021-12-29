@@ -1,0 +1,55 @@
+.table a{
+  color: rgba(255, 255, 255, 0.7);
+  text-shadow: 0px 0px 2px black;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.table a:hover{
+  color: rgba(255, 0, 0, 0.75);
+  text-decoration: none;
+}
+
+.bg-info{
+  background-color: black !important;
+}
+
+.bg-danger{
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.display-3{
+  color: rgba(0, 0, 0, 0.9);
+  font-size: 5vw;
+  font-weight: 500;
+  text-shadow: 0px 0px 10px rgba(7, 7, 7, 0.9);
+}
+
+.delete-btn{
+  color: rgba(255, 0, 0, 0.75) !important;
+}
+
+.delete-btn:hover{
+  text-decoration: none !important;
+  color: rgba(255, 255, 255) !important;
+  text-shadow: 0px 0px 2px black !important;
+  font-weight: bold !important;
+}
+
+.td-delete:hover{
+  background-color: rgba(155, 0, 0, 0.75) !important;
+  color: rgba(255, 255, 255) !important;
+  cursor: pointer;
+}
+
+.btn-outline-secondary {
+  color: rgba(255, 240, 140);
+  border-color: rgba(255, 240, 140);
+  font-size: 1.5vw;
+}
+
+.btn-outline-secondary:hover {
+  color: rgb(0, 0, 0);
+  background-color: rgba(255, 240, 140);
+  border-color: rgba(255, 240, 140);
+}

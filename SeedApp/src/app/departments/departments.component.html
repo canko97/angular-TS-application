@@ -1,0 +1,91 @@
+<div class="seq-header m-lg-5 m-md-5 m-sm-3 m-xs-1 text-center">
+    <h1 class="display-3 pricing">DEPARTMETS</h1>
+</div>
+
+<div class="row justify-content-center px-lg-5 px-sm-1 mx-0">
+  <div class="col-s-3">
+    <form class="ml-auto search mt-3">
+      <app-department-search></app-department-search>
+    </form>
+  </div>
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 my-3 mx-3 my-3">
+      <table class="table table-dark table-bordered table-striped table-hover">
+        <thead>
+          <tr>
+            <th scope="col" class="bg-info">#</th>
+            <th scope="col" class="bg-info">ID</th>
+            <th scope="col" class="bg-info">NAME</th>
+            <th scope="col" class="bg-info">BUILDING</th>
+            <th scope="col" class="bg-info">EMPLOYEES</th>
+            <th scope="col" class="bg-info">ACTION</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let department of departments; index as i" >
+            <th scope="row" class="bg-danger">{{ i + 1 }}</th>
+            <td routerLink="/ddetail/{{department.id}}">
+              <a routerLink="/ddetail/{{department.id}}">
+              {{department.id}}
+              </a>
+            </td>
+            <td routerLink="/ddetail/{{department.id}}">
+              <a routerLink="/ddetail/{{department.id}}">
+              {{department.name}}
+              </a>
+            </td>
+            <td routerLink="/ddetail/{{department.id}}">
+              <a routerLink="ddetail/{{department.id}}">
+              {{department.building}}
+              </a>
+            </td>
+            <td>
+              <a>
+                {{department.employees}}
+              </a>
+            </td>
+            <td class="td-delete">
+              <!-- <a class="delete-btn btn-block text-center" (click) = "deleteDepartment(department.name)" >Delete</a> -->
+              <a class="delete-btn btn-block text-center" (click)="delete(department)">Delete</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 my-3 mx-3">
+      <div class="container text-center">
+            <!-- <form method="post" class="text-center">
+                <label for="id" class="sr-only">ID</label>
+                <input type="number" name="id" [(ngModel)] = "id" class="form-control my-1" placeholder="ID" required="">
+                <label for="name" class="sr-only">NAME</label>
+                <input type="text" name="name" [(ngModel)] = "name" class="form-control my-1" placeholder="NAME" required="">
+                <label for="description " class="sr-only">DESCRIPTION</label>
+                <input type="text" name="description" [(ngModel)] = "description" class="form-control my-1" placeholder="DESCRIPTION" required="">
+
+                <button type="submit" class="btn create btn-outline-secondary btn-block my-3" (click) = "createDepartment()">CREATE DEPARTMENT</button>
+            </form> -->
+            <form method="post" class="form-group align-items-center">
+              <div class="add-emp mx-1 col-s-3">
+                <span>ADD DEPARTMENT </span>
+              </div>
+              <div class="col-s-3">
+                <!-- <input type="number" #departmentId name="depid" class="form-control my-1" placeholder="DEPARTMENT ID"> -->
+                <input type="text" #departmentName name="name" class="form-control my-1" placeholder="DEPARTMENT NAME">
+                <input type="text" #departmentBuilding name="name" class="form-control my-1" placeholder="DEPARTMENT BUILDING">
+              </div>
+              <div class="col-s-3">
+                <button type="submit" class="btn create btn-outline-secondary my-3" 
+                (click)="add( departmentName.value, departmentBuilding.value); 
+                departmentName.value=''; departmentBuilding.value=''">ADD DEPARTMENT</button>
+              </div>  
+            </form>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6 my-3 mx-3 my-3">
+        <app-department-detail [department] = "selectedDepartment"></app-department-detail>
+    </div> -->
+
+
+
+
+

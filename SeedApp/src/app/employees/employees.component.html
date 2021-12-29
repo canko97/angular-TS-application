@@ -1,0 +1,75 @@
+<div class="seq-header m-lg-5 m-md-5 m-sm-3 m-xs-1 text-center">
+  <h1 class="display-3 pricing">EMPLOYEES</h1>
+</div>
+
+<div class="row justify-content-center px-lg-5 px-sm-1 mx-0">
+  <div class="col-s-3">
+    <form class="ml-auto search mt-3">
+      <app-employee-search></app-employee-search>
+    </form>
+  </div>
+  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 my-3 mx-3">
+    <table class="table table-dark table-bordered table-striped table-hover">
+      <thead>
+        <tr>
+          <th scope="col" class="bg-info">#</th>
+          <th scope="col" class="bg-info">ID</th>
+          <th scope="col" class="bg-info">DEP ID</th>
+          <th scope="col" class="bg-info">FIRST NAME</th>
+          <th scope="col" class="bg-info">LAST NAME</th>
+          <th scope="col" class="bg-info">BIRTH DATE</th>
+          <th scope="col" class="bg-info">ACTION</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employees; index as i">
+          <th scope="row" class="bg-danger">{{ i + 1 }}</th>
+          <td routerLink="/detail/{{employee.id}}">
+            <a routerLink="/detail/{{employee.id}}">
+            {{employee.id}}
+            </a>
+          </td>
+          <td>
+              {{employee.department_id}}
+          </td>
+          <td routerLink="/detail/{{employee.id}}">
+            <a routerLink="/detail/{{employee.id}}">
+              {{employee.first_name}}
+            </a>
+          </td>
+          <td routerLink="/detail/{{employee.id}}">
+            <a routerLink="/detail/{{employee.id}}">
+              {{employee.last_name}}
+            </a>
+          </td>
+          <td>
+            {{employee.birth_date}}
+          </td>
+          <td class="td-delete">
+            <a class="delete-btn btn-block text-center" (click)="delete(employee)">Delete</a>
+          </td>
+        </tr>
+      </tbody>
+    </table> 
+  </div>
+  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 my-3 mx-3">
+    <div class="container text-center">
+      <form method="post" class="form-group align-items-center">
+        <div class="add-emp mx-1 col-s-3">
+          <span>ADD EMPLOYEE </span>
+        </div>
+        <div class="col-s-3">
+          <input type="number" #employeeDepartmentId name="depid" class="form-control my-1" placeholder="DEPARTMENT ID">
+          <input type="text" #employeeFirstName name="name" class="form-control my-1" placeholder="FIRST NAME">
+          <input type="text" #employeeLastName name="name" class="form-control my-1" placeholder="LAST NAME">
+        </div>
+        <div class="col-s-3">
+          <button type="submit" class="btn create btn-outline-secondary my-3" 
+          (click)="add(employeeDepartmentId.value, employeeFirstName.value, employeeLastName.value); 
+          employeeDepartmentId.value=''; employeeFirstName.value=''; employeeLastName.value=''">ADD EMPLOYEE</button>
+        </div>  
+      </form>
+    </div>
+  </div>
+</div>
+  
